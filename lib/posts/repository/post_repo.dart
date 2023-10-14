@@ -15,7 +15,7 @@ class PostRepository implements _PostRepository {
   Future getPostsFromServer() async {
     try {
       response =
-          await _dioClient.dio.get(_dioClient.dio.options.baseUrl + "posts");
+          await _dioClient.dio.get(_dioClient.dio.options.baseUrl + "post");
       postData = response?.data.map((post) => Post.fromJson(post)).toList();
     } on DioException catch (e) {
       throw {e};

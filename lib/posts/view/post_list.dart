@@ -8,24 +8,35 @@ class PostList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<PostBloc, PostState>(builder: (context, state) {
-      switch (state.status) {
-        case PostStatus.failure:
-          return const Center(
-            child: Text("Failed to fetch posts"),
-          );
-        case PostStatus.initial:
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        case PostStatus.success:
-          return ListView.builder(
-              itemCount: state.posts.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(state.posts[index].title),
-                );
-              });
-      }
+      return state.when(
+          initial: () => Center(),
+          success: (List postList) => ListView.builder(
+                itemCount: postList.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(postList[index].title),
+                  );
+                },
+              ),
+          failure: (String error) => Text(error));
+      // switch (state.status) {
+      //   case PostStatus.failure:
+      //     return const Center(
+      //       child: Text("Failed to fetch posts"),
+      //     );
+      //   case PostStatus.initial:
+      //     return const Center(
+      //       child: CircularProgressIndicator(),
+      //     );
+      //   case PostStatus.success:
+      //     return ListView.builder(
+      //         itemCount: state.posts.length,
+      //         itemBuilder: (context, index) {
+      //           return ListTile(
+      //             title: Text(state.posts[index].title),
+      //           );
+      //         });
+      // }
     });
   }
 }

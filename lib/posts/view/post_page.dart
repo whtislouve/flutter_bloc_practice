@@ -15,7 +15,7 @@ class PostPage extends StatelessWidget {
         title: const Text("Posts"),
       ),
       body: BlocProvider(
-        create: (_) => PostBloc(postRepo: postRepo)..add(PostFetched()),
+        create: (_) => PostBloc(postRepo: postRepo)..add(PostEvent.initial()),
         child: PostList(),
       ),
     );
