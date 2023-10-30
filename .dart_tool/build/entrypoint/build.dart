@@ -4,10 +4,12 @@ import 'package:build_runner_core/build_runner_core.dart' as _i1;
 import 'package:freezed/builder.dart' as _i2;
 import 'package:json_serializable/builder.dart' as _i3;
 import 'package:source_gen/builder.dart' as _i4;
-import 'package:build_resolvers/builder.dart' as _i5;
-import 'dart:isolate' as _i6;
-import 'package:build_runner/build_runner.dart' as _i7;
-import 'dart:io' as _i8;
+import 'package:slang_build_runner/slang_build_runner.dart' as _i5;
+import 'package:auto_route_generator/builder.dart' as _i6;
+import 'package:build_resolvers/builder.dart' as _i7;
+import 'dart:isolate' as _i8;
+import 'package:build_runner/build_runner.dart' as _i9;
+import 'dart:io' as _i10;
 
 final _builders = <_i1.BuilderApplication>[
   _i1.apply(
@@ -31,8 +33,32 @@ final _builders = <_i1.BuilderApplication>[
     appliesBuilders: const [r'source_gen:part_cleanup'],
   ),
   _i1.apply(
+    r'slang_build_runner:slang_build_runner',
+    [_i5.i18nBuilder],
+    _i1.toRoot(),
+    hideOutput: false,
+  ),
+  _i1.apply(
+    r'auto_route_generator:auto_route_generator',
+    [_i6.autoRouteBuilder],
+    _i1.toDependentsOf(r'auto_route_generator'),
+    hideOutput: true,
+  ),
+  _i1.apply(
+    r'auto_route_generator:auto_router_module_generator',
+    [_i6.autoRouterModuleBuilder],
+    _i1.toDependentsOf(r'auto_route_generator'),
+    hideOutput: false,
+  ),
+  _i1.apply(
+    r'auto_route_generator:auto_router_generator',
+    [_i6.autoRouterBuilder],
+    _i1.toDependentsOf(r'auto_route_generator'),
+    hideOutput: false,
+  ),
+  _i1.apply(
     r'build_resolvers:transitive_digests',
-    [_i5.transitiveDigestsBuilder],
+    [_i7.transitiveDigestsBuilder],
     _i1.toAllPackages(),
     isOptional: true,
     hideOutput: true,
@@ -44,12 +70,12 @@ final _builders = <_i1.BuilderApplication>[
 ];
 void main(
   List<String> args, [
-  _i6.SendPort? sendPort,
+  _i8.SendPort? sendPort,
 ]) async {
-  var result = await _i7.run(
+  var result = await _i9.run(
     args,
     _builders,
   );
   sendPort?.send(result);
-  _i8.exitCode = result;
+  _i10.exitCode = result;
 }

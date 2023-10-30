@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc_practice/navigation/app_router.dart';
 
-import 'package:flutter_bloc_practice/posts/view/post_page.dart';
+class App extends StatelessWidget {
+  final _appRouter = AppRouter();
 
-class App extends MaterialApp {
-  App({super.key}) : super(home: PostPage());
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      routerConfig: _appRouter.config(),
+    );
+  }
 }

@@ -1,0 +1,13 @@
+{
+    "confirm_registration_screen": {
+        "confirm_phone_number" : "Confirm phone number",
+        "you_will_recive_Sms_code":"You will recive Sms code on your device \n to confirm your phone number",
+        "send": "Send"
+    },
+    "sms_pinput": {
+        "pin_is_incorrect": "Pin is incorrect",
+        "no_sms_code": "No Sms code?",
+        "send_again": "send again",
+        "in_": "in"
+    }
+}

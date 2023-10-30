@@ -1,0 +1,13 @@
+{
+    "confirm_registration_screen": {
+        "confirm_phone_number" : "Подтвердите номер телефона",
+        "you_will_recive_Sms_code":"На указанный номер телефона придет SMS \n с кодом для подтверждения",
+        "send" : "Отправить"
+    },
+    "sms_pinput": {
+        "pin_is_incorrect": "Не правильный код",
+        "no_sms_code": "Не пришел код?",
+        "send_again": "Отправить повторно",
+        "in_": "через"
+    }
+}
