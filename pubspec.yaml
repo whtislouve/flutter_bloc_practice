@@ -24,6 +24,7 @@ dependencies:
   flutter_native_splash: ^2.3.4
   slang: ^3.25.0
   slang_flutter: ^3.25.0
+  flutter_screenutil: ^5.9.0
  
 
 dev_dependencies:

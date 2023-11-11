@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc_practice/app.dart';
-import 'package:flutter_bloc_practice/i18n/strings.g.dart';
+import 'package:flutter_bloc_practice/app/app.dart';
+import 'package:flutter_bloc_practice/helpers/i18n/strings.g.dart';
 import 'package:flutter_bloc_practice/simple_bloc_observer.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 
